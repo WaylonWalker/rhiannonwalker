@@ -16,7 +16,7 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 300, height: 300) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -24,9 +24,7 @@ const Bio = () => {
       site {
         siteMetadata {
           author
-          social {
-            twitter
-          }
+
         }
       }
     }
@@ -37,7 +35,10 @@ const Bio = () => {
     <div
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        flexDirection: `column`,
+        alignItems: `center`,
+        marginBottom: rhythm(2),
+        marginTop: rhythm(2),
       }}
     >
       <Image
@@ -53,14 +54,10 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
+      {/* <p>
+        Written by <strong>{author}</strong>
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
+      </p> */}
     </div>
   )
 }
