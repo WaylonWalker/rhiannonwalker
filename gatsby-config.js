@@ -10,6 +10,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-source-anchor',
+      options: {
+        rss: 'https://anchor.fm/s/7c9fd54/podcast/rss',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
