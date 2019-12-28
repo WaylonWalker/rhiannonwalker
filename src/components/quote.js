@@ -22,6 +22,9 @@ p {
 p:first-child {
     margin: 4rem 8rem 0 0;
 }
+em {
+    color: rgba(200, 90, 130)
+}
 `
 
 const Quote = () => {
@@ -57,7 +60,7 @@ const Quote = () => {
                 Live Each Day
             </animated.p >
             <animated.p style={{ ...animationRight, position: 'relative' }}>
-                One Breath at a Time
+                One <em>Breath</em> at a Time
         <span className="quotes">”</span>
             </animated.p >
         </QuoteStyle >
