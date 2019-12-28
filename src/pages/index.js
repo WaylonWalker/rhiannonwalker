@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
+import Quote from "../components/quote"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { scale, rhythm } from "../utils/typography"
@@ -35,9 +36,9 @@ const Podcast = ({ podcastTitle, podcastContent, podcasts }) => {
           </Link>
         </h1>
         {/* <p>{podcastContent}</p> */}
-        {podcasts.map(item =>
+        {podcasts.slice(0, 1).map(item =>
           <div className="podcast" style={{ marginBottom: '3rem' }}>
-            <iframe src={`${item.item.link.replace('episodes', 'embed/episodes')}/a-ah2h7l`} height="102px" width="400px" frameborder="0" scrolling="no" style={{ marginBottom: '.2rem', marginLeft: '-1rem' }} />
+            <iframe title={`${item.item.link.replace('episodes', 'embed/episodes')}/a-ah2h7l`} src={`${item.item.link.replace('episodes', 'embed/episodes')}/a-ah2h7l`} height="102px" width="400px" frameborder="0" scrolling="no" style={{ marginBottom: '.2rem', marginLeft: '-1rem' }} />
             <blockquote dangerouslySetInnerHTML={{ __html: item.item.content }} />
             {/* {item.item.content}</blockquote> */}
           </div>
@@ -60,8 +61,9 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
+        <Quote />
         <Bio />
-        <Podcast podcastTitle='she runs a podcast' podcastContent='Listen Today' podcasts={podcasts} />
+        <Podcast podcastTitle='One Breath At a Time' podcastContent='Listen Today' podcasts={podcasts} />
         {/* {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -113,19 +115,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-    // }
-    // allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-    //   edges {
-    //     node {
-    //       excerpt
-    //       fields {
-    //         slug
-    //       }
-    //       frontmatter {
-    //         date(formatString: "MMMM DD, YYYY")
-    //         title
-    //         description
-    //       }
-    //     }
-    //   }

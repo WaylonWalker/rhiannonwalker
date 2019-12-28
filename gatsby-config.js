@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `The central source for all things Rhiannon`,
+    title: `Rhiannon Walker`,
     author: `Rhiannon Walker`,
     description: `Rhiannon Walkers small place on the internet`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -69,7 +69,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/R.png`,
       },
     },
     `gatsby-plugin-offline`,
