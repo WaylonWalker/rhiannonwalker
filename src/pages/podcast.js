@@ -52,9 +52,7 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    console.log('data: ', data)
     const podcasts = data.anchorPodcast.items
-    console.log('podcasts: ', podcasts)
     // const posts = data.allMarkdownRemark.edges
 
     return (

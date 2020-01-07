@@ -13,13 +13,10 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    console.log(posts)
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         {posts.map(({ node }) => {
-          console.log('node', node)
           const title = node.frontmatter.title || node.frontmatter.slug
           return (
             <article key={node.frontmatter.slug}>
