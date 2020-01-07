@@ -49,14 +49,13 @@ const Podcast = ({ podcastTitle, podcastContent, podcasts }) => {
     </div >
   )
 }
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     console.log('data: ', data)
     const podcasts = data.anchorPodcast.items
     console.log('podcasts: ', podcasts)
-    // const posts = data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -95,7 +94,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
