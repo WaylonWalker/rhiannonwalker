@@ -17,16 +17,17 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.frontmatter.slug
+          const title = node.frontmatter.title || node.fields.slug
+          console.log('node', node)
           return (
-            <article key={node.frontmatter.slug}>
+            <article key={node.fields.slug}>
               <header>
                 <h3
                   style={{
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.frontmatter.slug}>
+                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
@@ -60,11 +61,13 @@ query {
     edges {
       node {
         id
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           description
-          slug
         }
       }
     }
